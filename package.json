@@ -3,7 +3,10 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "npm run serve:all",
+    "serve:web": "ng serve --port 4300 --open",
+    "serve:api": "json-server server/db.json",
+    "serve:all": "concurrently \"npm run serve:api\" \"npm run serve:web\"",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -11,13 +14,17 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "~13.0.0",
+    "@angular/cdk": "^13.0.2",
     "@angular/common": "~13.0.0",
     "@angular/compiler": "~13.0.0",
     "@angular/core": "~13.0.0",
     "@angular/forms": "~13.0.0",
+    "@angular/material": "^13.0.2",
     "@angular/platform-browser": "~13.0.0",
     "@angular/platform-browser-dynamic": "~13.0.0",
     "@angular/router": "~13.0.0",
+    "concurrently": "^6.4.0",
+    "json-server": "^0.17.0",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

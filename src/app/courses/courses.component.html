@@ -1,0 +1,10 @@
+<div class="courses-containers">
+  <div class="courses-list">
+    <app-courses-list [courses]="courses$ | async" (courseSelected)="selectCourse($event)"
+      (courseDeleted)="deleteCourse($event)"></app-courses-list>
+  </div>
+  <div class="course-details">
+    <app-course-details [selectedCourse]="selectedCourse" (courseSaved)="saveCourse($event)"
+      (courseCancelled)="resetCourse()"></app-course-details>
+  </div>
+</div>
