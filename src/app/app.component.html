@@ -1,31 +1,49 @@
 <mat-toolbar color="primary" class="mat-elevation-z4">
   <span>
-    <button *ngIf="isAuthenticated$ | async" mat-mini-fab (click)="sidenav?.toggle()">
+    <button
+      *ngIf="isAuthenticated$ | async"
+      mat-mini-fab
+      (click)="sidenav?.toggle()"
+    >
       <mat-icon>menu</mat-icon>
     </button>
     <span class="logo">
-      <img src="assets/logo.png" alt="Logo">
+      <img src="assets/logo.png" alt="Logo" />
     </span>
     <span class="title">
       {{ title }}
     </span>
   </span>
   <span class="spacer"></span>
-  <button *ngIf="isAuthenticated$ | async" (click)="logout()" class="login" mat-mini-fab>
+  <button
+    *ngIf="isAuthenticated$ | async"
+    (click)="logout()"
+    class="login"
+    mat-mini-fab
+  >
     <mat-icon>person</mat-icon>
   </button>
 </mat-toolbar>
 
 <mat-sidenav-container>
-  <mat-sidenav #sidenav mode="side" [opened]="isAuthenticated$ | async" class="app-sidenav">
+  <mat-sidenav
+    #sidenav
+    mode="side"
+    [opened]="isAuthenticated$ | async"
+    class="app-sidenav"
+  >
     <nav>
-      <a mat-button class="nav-link"
+      <a
+        mat-button
+        class="nav-link"
         *ngFor="let link of links"
-        [routerLink]="link.path" routerLinkActive="active">
+        [routerLink]="link.path"
+        routerLinkActive="active"
+      >
         <mat-icon>
-          {{link.icon}}
+          {{ link.icon }}
         </mat-icon>
-        {{link.title}}
+        {{ link.title }}
       </a>
     </nav>
   </mat-sidenav>

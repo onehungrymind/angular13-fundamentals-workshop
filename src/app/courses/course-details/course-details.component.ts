@@ -4,7 +4,7 @@ import { Course } from 'src/app/shared/interfaces/course.interface';
 @Component({
   selector: 'app-course-details',
   templateUrl: './course-details.component.html',
-  styleUrls: ['./course-details.component.scss']
+  styleUrls: ['./course-details.component.scss'],
 })
 export class CourseDetailsComponent implements OnInit {
   @Input() set selectedCourse(value: Course) {
@@ -19,10 +19,9 @@ export class CourseDetailsComponent implements OnInit {
   originalTitle: string;
   currentCourse: Course;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   saveCourse(course: Course) {
     this.courseSaved.emit(course);

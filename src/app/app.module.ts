@@ -19,10 +19,7 @@ import { NotificationService } from './shared/services/notification.service';
     HttpClientModule,
   ],
   declarations: [AppComponent, HomeComponent],
-  providers: [
-    AuthService,
-    NotificationService
-  ],
+  providers: [AuthService, NotificationService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
