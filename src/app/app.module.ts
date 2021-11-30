@@ -13,6 +13,9 @@ import { LoginComponent } from './login/login.component';
 import { MaterialModule } from './material.module';
 import { AuthService } from './shared/services/auth/auth.service';
 import { NotificationService } from './shared/services/notifications/notification.service';
+import { AdminComponent } from './admin/admin.component';
+import { AdminPayrollComponent } from './admin/admin-payroll/admin-payroll.component';
+import { AdminVacationComponent } from './admin/admin-vacation/admin-vacation.component';
 
 @NgModule({
   imports: [
@@ -30,6 +33,9 @@ import { NotificationService } from './shared/services/notifications/notificatio
     CourseDetailsComponent,
     CoursesListComponent,
     LoginComponent,
+    AdminComponent,
+    AdminPayrollComponent,
+    AdminVacationComponent,
   ],
   providers: [AuthService, NotificationService],
   bootstrap: [AppComponent],
