@@ -6,6 +6,13 @@
       "description": "Learn the fundamentals of Angular 13",
       "percentComplete": 26,
       "favorite": true
+    },
+    {
+      "id": "yz8Ei3S",
+      "title": "New Course",
+      "description": "Super awesome ya'all! Holla!",
+      "percentComplete": 0,
+      "favorite": true
     }
   ],
   "lessons": [
