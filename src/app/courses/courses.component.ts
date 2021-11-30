@@ -24,18 +24,19 @@ export class CoursesComponent implements OnInit {
       id: 1,
       title: 'Angular 13 Fundamentals',
       description: 'Learn the fundamentals of Angular 13',
-      percentComplete: 26,
+      percentComplete: 12,
       favorite: true
     },
     {
       id: 2,
       title: 'JavaScript The HARDEST PARTS EVER!',
       description: 'Learn the JavaScript like a pro! with Will',
-      percentComplete: 26,
+      percentComplete: 98,
       favorite: true
     }
   ];
   selectedCourse = emptyCourse;
+  originalTitle = '';
 
   constructor() { }
 
@@ -43,7 +44,12 @@ export class CoursesComponent implements OnInit {
   }
 
   selectCourse(course) {
-    this.selectedCourse = course;
+    this.selectedCourse = {...course};
+    this.originalTitle = course.title;
+  }
+
+  saveCourse(course) {
+    console.log('SAVE COURSE', course);
   }
 
   deleteCourse(courseId) {
