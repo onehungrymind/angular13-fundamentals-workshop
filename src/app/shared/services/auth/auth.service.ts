@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 
-import { UserInfo } from '../interfaces/auth.interface';
+import { UserInfo } from '../../interfaces/auth.interface';
 
 const AUTHENTICATION_KEY = 'workshop:authenticated';
 

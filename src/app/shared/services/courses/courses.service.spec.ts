@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 
 import { CoursesService } from './courses.service';
-import { NotificationService } from './notification.service';
+import { NotificationService } from '../notifications/notification.service';
 
 describe('CoursesService', () => {
   let service: CoursesService;

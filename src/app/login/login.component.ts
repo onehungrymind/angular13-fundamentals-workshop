@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { UserInfo } from '../shared/interfaces/auth.interface';
-import { AuthService } from '../shared/services/auth.service';
+import { AuthService } from '../shared/services/auth/auth.service';
 
 @Component({
   selector: 'app-login',

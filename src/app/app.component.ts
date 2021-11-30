@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { shareReplay } from 'rxjs/operators';
 
-import { AuthService } from './shared/services/auth.service';
+import { AuthService } from './shared/services/auth/auth.service';
 
 @Component({
   selector: 'app-root',

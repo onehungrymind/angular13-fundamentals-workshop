@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { Course } from '../interfaces/course.interface';
-import { NotificationService } from './notification.service';
+import { Course } from '../../interfaces/course.interface';
+import { NotificationService } from '../notifications/notification.service';
 
 const BASE_URL = 'http://localhost:3000';
 
