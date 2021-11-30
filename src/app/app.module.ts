@@ -5,10 +5,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { MaterialModule } from './material.module';
-import { AuthService } from './shared/services/auth.service';
-import { NotificationService } from './shared/services/notification.service';
+import { HomeComponent } from './home/home.component';
+import { CoursesComponent } from './courses/courses.component';
 
 @NgModule({
   imports: [
@@ -18,8 +17,8 @@ import { NotificationService } from './shared/services/notification.service';
     MaterialModule,
     HttpClientModule,
   ],
-  declarations: [AppComponent, HomeComponent],
-  providers: [AuthService, NotificationService],
+  declarations: [AppComponent, HomeComponent, CoursesComponent],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
