@@ -231,6 +231,10 @@ mat-card-actions {
   align-items: center;
   padding-top: 5px;
   padding-bottom: 5px;
+
+  &.active {
+    color: red !important;
+  }
 }
 
 // UI LOGIN
