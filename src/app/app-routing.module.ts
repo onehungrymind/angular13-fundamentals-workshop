@@ -10,6 +10,8 @@ import { ExamplesComponent } from './examples/examples.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RouteParamsComponent } from './examples/route-params/route-params.component';
+import { AuthGuard } from './shared/guards/auth.guard';
+import { ProtectedComponent } from './examples/protected/protected.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -19,6 +21,8 @@ const routes: Routes = [
     path: 'examples',
     component: ExamplesComponent,
     children: [
+      { path: 'create', component: DynamicComponent },
+      { path: 'input', component: CustomInputComponent },
       {
         path: 'child',
         component: AdminComponent,
@@ -34,10 +38,13 @@ const routes: Routes = [
             (m) => m.LazyModule
           ),
       },
-      { path: 'create', component: DynamicComponent },
-      { path: 'input', component: CustomInputComponent },
       { path: 'params', component: RouteParamsComponent },
       { path: 'params/:id', component: RouteParamsComponent },
+      {
+        path: 'protected',
+        component: ProtectedComponent,
+        canActivate: [AuthGuard],
+      },
     ],
   },
   { path: '**', redirectTo: '/home' },

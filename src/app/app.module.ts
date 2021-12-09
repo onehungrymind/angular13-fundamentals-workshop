@@ -25,6 +25,7 @@ import { TriangleComponent } from './examples/dynamic-component/triangle/triangl
 import { CustomInputComponent } from './examples/custom-input/custom-input.component';
 import { CustomControlComponent } from './examples/custom-input/custom-control/custom-control.component';
 import { RouteParamsComponent } from './examples/route-params/route-params.component';
+import { ProtectedComponent } from './examples/protected/protected.component';
 
 @NgModule({
   imports: [
@@ -53,6 +54,7 @@ import { RouteParamsComponent } from './examples/route-params/route-params.compo
     CustomInputComponent,
     CustomControlComponent,
     RouteParamsComponent,
+    ProtectedComponent,
   ],
   providers: [AuthService, NotificationService],
   bootstrap: [AppComponent],
