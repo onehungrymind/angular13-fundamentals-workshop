@@ -15,6 +15,14 @@ export class AppComponent {
     { path: '/courses', icon: 'view_list', title: 'Courses' },
   ];
 
+  examples = [
+    { path: '/examples/params', icon: 'system_update_alt', title: 'Route Params' },
+    { path: '/examples/child', icon: 'face', title: 'Child Routes' },
+    { path: '/examples/lazy', icon: 'swap_vertical_circle', title: 'Lazy Module' },
+    { path: '/examples/create', icon: 'add_box', title: 'Dynamic Components' },
+    { path: '/examples/input', icon: 'dashboard_customize', title: 'Custom Input' },
+  ]
+
   isAuthenticated$ = this.authService.isAuthenticated$.pipe(shareReplay(1));
 
   constructor(private authService: AuthService) {}

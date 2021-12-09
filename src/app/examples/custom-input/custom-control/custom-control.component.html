@@ -1,0 +1,21 @@
+<mat-card>
+  <mat-card-title>
+    <h2>Secure Key</h2>
+  </mat-card-title>
+  <mat-card-content>
+    <mat-form-field class="full-width">
+      <input matInput
+        type="text"
+        [(ngModel)]="key"
+        (ngModelChange)="onChange($event)"
+        (blur)="onTouch()">
+    </mat-form-field>
+    <button
+      (click)="generateKey()"
+      (mouseout)="onTouch()"
+      mat-raised-button
+      color="primary">
+      Generate
+    </button>
+  </mat-card-content>
+</mat-card>

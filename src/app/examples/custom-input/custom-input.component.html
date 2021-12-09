@@ -1,0 +1,9 @@
+<mat-toolbar color="accent">
+  Control Value Accessor
+</mat-toolbar>
+
+<form #form="ngForm">
+  <app-custom-control name="key" [(ngModel)]="currentKey"></app-custom-control>
+</form>
+<hr>
+<pre>{{form.value | json}}</pre>

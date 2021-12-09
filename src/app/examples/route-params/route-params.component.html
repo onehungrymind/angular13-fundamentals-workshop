@@ -1,0 +1,39 @@
+<mat-toolbar color="warning">
+  Route Params Example
+</mat-toolbar>
+
+<div class="container-component">
+  <div class="list">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          Course Outline
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item
+            *ngFor="let lesson of lessons"
+            [routerLink]="['/examples/params', lesson.id]">
+            <h3 matLine> {{ lesson.title | titlecase }} </h3>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="details">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title> Current Lesson </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-list *ngIf="currentLesson; else elseBlock">
+          <mat-list-item>
+            <h3 matLine> {{ currentLesson.title | titlecase }} </h3>
+          </mat-list-item>
+        </mat-list>
+        <ng-template #elseBlock>Select a lesson</ng-template>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
