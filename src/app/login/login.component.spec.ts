@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { AuthService } from '../shared/services/auth/auth.service';
 
-import { AuthService } from '../shared/services/auth.service';
 import { LoginComponent } from './login.component';
 
 describe('LoginComponent', () => {

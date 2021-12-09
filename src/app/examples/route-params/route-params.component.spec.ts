@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { RouteParamsComponent } from './route-params.component';
 
@@ -8,9 +9,9 @@ describe('RouteParamsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RouteParamsComponent ]
-    })
-    .compileComponents();
+      declarations: [RouteParamsComponent],
+      imports: [RouterTestingModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {

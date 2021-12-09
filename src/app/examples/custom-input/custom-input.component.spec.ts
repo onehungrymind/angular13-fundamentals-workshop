@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
 
 import { CustomInputComponent } from './custom-input.component';
 
@@ -8,7 +9,8 @@ describe('CustomInputComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CustomInputComponent ]
+      declarations: [ CustomInputComponent ],
+      imports: [FormsModule]
     })
     .compileComponents();
   });
