@@ -1,49 +1,45 @@
 <div class="courses-containers">
-  <div class="courses-list">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>
-          Course List
-        </mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <mat-list>
-          <mat-list-item
-            *ngFor="let course of courses"
-            (click)="selectCourse(course)"
-          >
-            <h3 matLine>{{ course.title | titlecase }}</h3>
-            <p matLine>
-              {{ course.description }}
-            </p>
-            <button
-              mat-icon-button
-              color="warn"
-              (click)="deleteCourse(course.id); $event.stopImmediatePropagation()"
-            >
+    <div class="courses-list">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title> Course List </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <mat-list>
+                    <mat-list-item *ngFor="let course of courses" (click)="selectCourse(course)">
+                        <h3 matLine>{{ course.title | titlecase }}</h3>
+                        <p matLine>
+                            {{ course.description }}
+                        </p>
+                        <button mat-icon-button color="warn" (click)="
+                deleteCourse(course.id); $event.stopImmediatePropagation()
+              ">
               <mat-icon>delete</mat-icon>
             </button>
-          </mat-list-item>
-        </mat-list>
-      </mat-card-content>
-    </mat-card>
-  </div>
+                    </mat-list-item>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
 
-  <div class="course-details">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>
-          Select Course
-        </mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <pre>{{selectedCourse | json}}</pre>
-      </mat-card-content>
-      <mat-card-actions>
-
-        <!-- COURSE ACTIONS -->
-
-      </mat-card-actions>
-    </mat-card>
-  </div>
+    <div class="course-details">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    <span *ngIf="selectedCourse?.title; else default">{{
+            selectedCourse.title
+          }}</span>
+                    <ng-template #default>
+                        <span> Select Course </span>
+                    </ng-template>
+                </mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <pre>{{ selectedCourse | json }}</pre>
+            </mat-card-content>
+            <mat-card-actions>
+                <!-- COURSE ACTIONS -->
+            </mat-card-actions>
+        </mat-card>
+    </div>
 </div>
