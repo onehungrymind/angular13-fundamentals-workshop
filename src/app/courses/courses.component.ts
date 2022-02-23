@@ -1,4 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { Course } from '../common/models/course';
+
+const emptyCourse: Course = {
+  id: null,
+  title: '',
+  description: "",
+  percentComplete: 0,
+  favorite: false
+}
 
 @Component({
   selector: 'app-courses',
@@ -9,6 +18,8 @@ export class CoursesComponent implements OnInit {
   // 1. Render courses in a list.
   // 2. Select a course
   // 3. Render selected course
+
+
 
   courses = [
     {
@@ -27,17 +38,28 @@ export class CoursesComponent implements OnInit {
     },
   ];
 
-  selectedCourse = null;
+  selectedCourse = emptyCourse;
+  originalTitle = '';
+
   constructor() {}
 
   ngOnInit(): void { }
   
   selectCourse(course) {
-    this.selectedCourse = course;
+    this.selectedCourse = { ...course };
+    this.originalTitle = course.title;
+  }
+
+  saveCourse(course) {
+    console.log('SAVE COURSE', course);
   }
 
   deleteCourse(courseId) {
     console.log('DELETE COURSE', courseId);
+  }
+
+  reset() {
+    this.selectCourse({ ...emptyCourse });
   }
 
 }

@@ -27,25 +27,43 @@
     <mat-card>
       <mat-card-header>
         <mat-card-title>
-        <span *ngIf="selectedCourse?.id; else elseBlock">
-            {{selectedCourse.title | titlecase}}
-        </span>
-        <ng-template #elseBlock> Select a Course</ng-template>
-        
+          <span *ngIf="selectedCourse?.id; else elseBlock">
+            {{originalTitle | titlecase}}
+          </span>
+          <ng-template #elseBlock> Select a Course</ng-template>
         </mat-card-title>
       </mat-card-header>
-      <mat-card-content>
+      <!-- COURSE FORM -->
+      <form #form="ngForm" (submit)="saveCourse(selectedCourse)" >
+        <mat-card-content>
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Title" [(ngModel)]="selectedCourse.title" name="title" required type="text" />
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Description" [(ngModel)]="selectedCourse.description" name="Description"
+              type="text" />
+          </mat-form-field>
+          <section class="full-width">
+            <h4>{{selectedCourse.percentComplete}}% Complete</h4>
+            <mat-slider class="full-width" min="0" max="100" thumbLabel [(ngModel)]="selectedCourse.percentComplete" name="percentComplete">
+            </mat-slider>
+          </section>
+          <section>
+            <mat-checkbox [(ngModel)]="selectedCourse.favorite" name="favorate">
+              Favorate
+            </mat-checkbox>
+          </section>
+        </mat-card-content>
+        <mat-card-actions>
+          <!-- COURSE ACTIONS -->
+          <button type="submit" [disabled]="form.invalid" mat-button color="primary" >Save</button>
+          <button type="button" mat-button (click)="reset()">Cancel</button>
 
-        <!-- COURSE FORM -->
-        <pre>{{selectedCourse | json}}</pre>
-
-      </mat-card-content>
-      <mat-card-actions>
-
-        <!-- COURSE ACTIONS -->
-        <button type="button" mat-button (click)="selectCourse(null)">Cancel</button>
-
-      </mat-card-actions>
+        </mat-card-actions>
+      </form>
+      <hr>
+      <pre>{{form.value | json}}</pre>
+      <pre>{{form.valid | json}}</pre>
     </mat-card>
   </div>
 </div>
