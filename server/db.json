@@ -9,10 +9,10 @@
     },
     {
       "id": "PZi4n6c",
-      "title": "java",
+      "title": "java core",
       "description": "Trying to learn new skills",
       "percentComplete": 0,
-      "favorite": false
+      "favorite": true
     }
   ],
   "lessons": [
