@@ -1,11 +1,24 @@
 {
   "courses": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Angular 13 Fundamentals",
       "description": "Learn the fundamentals of Angular 13",
       "percentComplete": 26,
       "favorite": true
+    },
+    {
+      "id": "PZi4n6c",
+      "title": "java core",
+      "description": "Trying to learn new skills",
+      "percentComplete": 0,
+      "favorite": true
+    }
+  ],
+  "lessons": [
+    {
+      "id": "2",
+      "title": "Componenets Driven Architecture"
     }
   ]
 }
