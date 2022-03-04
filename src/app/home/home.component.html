@@ -4,5 +4,18 @@
   </mat-card-header>
   <mat-card-content>
     <!-- LESSON LIST -->
+   
+      <mat-list>
+          <mat-list-item *ngFor="let lesson of courseLessons" (click)="selectLesson(lesson)">
+            
+             
+                  {{lesson.title}}
+              
+              
+
+          </mat-list-item>
+      </mat-list>
+      <hr>
+      <pre> {{selectedLesson.title}}</pre>
   </mat-card-content>
 </mat-card>
