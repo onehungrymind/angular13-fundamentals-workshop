@@ -39,7 +39,8 @@ export class CoursesComponent implements OnInit {
   }
 
   deleteCourse(courseId){
-    console.log("DELETE ", courseId);
+    this.courseService.delete(courseId)
+      .subscribe(result => this.fetchCourses());
 
   }
 
