@@ -1,6 +1,13 @@
 {
   "courses": [
     {
+      "id": 1,
+      "title": "BRAH",
+      "description": "Super awesome !!!",
+      "percentComplete": 68,
+      "favorite": false
+    },
+    {
       "id": 2,
       "title": "New Course Update",
       "description": "Super awesome !!!",
@@ -9,9 +16,9 @@
     },
     {
       "id": 3,
-      "title": "New course here",
-      "description": "what up",
-      "percentComplete": 11,
+      "title": "test",
+      "description": "test",
+      "percentComplete": 50,
       "favorite": false
     }
   ],
