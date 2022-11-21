@@ -1,7 +1,7 @@
 <div class="courses-container">
   <div class="courses-list">
         <app-courses-list 
-        [courses]="courses"
+        [courses]="courses$ | async"
         (selected)="selectCourse($event)"
         (deleted)="deleteCourse($event)">
       </app-courses-list>

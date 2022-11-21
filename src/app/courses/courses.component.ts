@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Course } from '../common/models/course';
 import { CoursesService } from '../common/services/courses.service';
 
@@ -17,11 +18,11 @@ const emptyCourse: Course = {
   styleUrls: ['./courses.component.scss']
 })
 export class CoursesComponent implements OnInit {
-  //step 1 render courses in a list
-  //step 2 select a course
-  //step 3 render selected course
-  courses = [
-  ];
+
+  courses = [];
+  courses$: any;
+  selectedCourse = emptyCourse;
+  originalTitle = '';
 
   constructor(private courseService: CoursesService) { 
   }
@@ -29,9 +30,6 @@ export class CoursesComponent implements OnInit {
   ngOnInit(): void {
     this.fetchCourses();
   }
-
-  selectedCourse = emptyCourse;
-  originalTitle = '';
 
   selectCourse(course){
     this.selectedCourse = course;
@@ -49,8 +47,9 @@ export class CoursesComponent implements OnInit {
   }
 
   fetchCourses(){
-    this.courseService.all()
-    .subscribe((result:any)=> this.courses = result);
+    this.courses$ = this.courseService.all();
+    // this.courseService.all()
+    // .subscribe((result:any)=> this.courses = result);
   }
 
   saveCourse(course){
