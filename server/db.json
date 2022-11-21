@@ -7,5 +7,11 @@
       "percentComplete": 26,
       "favorite": true
     }
+  ],
+  "lessons":[
+    {
+      "id":"1",
+      "title": "Component Arch"
+    }
   ]
 }
