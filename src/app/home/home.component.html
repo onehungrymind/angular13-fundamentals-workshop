@@ -5,8 +5,8 @@
   <mat-card-content>
     <!-- LESSON LIST -->
     <mat-list>
-      <mat-list-item *ngFor="let courseLesson of courseLessons" (click)="selectLesson(courseLesson)">
-        {{courseLesson.title}}
+      <mat-list-item *ngFor="let lesson of lessons" (click)="selectLesson(lesson)">
+        {{lesson.title}}
       </mat-list-item>
     </mat-list>
     <hr>
