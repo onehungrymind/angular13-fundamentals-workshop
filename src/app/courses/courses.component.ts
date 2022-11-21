@@ -1,4 +1,14 @@
 import { Component, OnInit } from '@angular/core';
+import { Course } from '../common/models/course';
+
+const emptyCourse: Course = {
+  id: null,
+  title: '',
+  description: '',
+  percentComplete: 0,
+  favorite: false
+
+}
 
 @Component({
   selector: 'app-courses',
@@ -38,7 +48,7 @@ export class CoursesComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  selectedCourse = null;
+  selectedCourse = emptyCourse;
 
   selectCourse(course){
     this.selectedCourse = course;
@@ -47,6 +57,11 @@ export class CoursesComponent implements OnInit {
   deleteCourse(courseId){
     console.log("DELETE ", courseId);
 
+  }
+
+  reset(){
+    this.selectCourse({...emptyCourse}); //pass by reference. 
+    
   }
 
 }

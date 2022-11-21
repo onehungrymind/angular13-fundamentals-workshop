@@ -1,6 +1,7 @@
 export interface Course {
+    id: string;
     title: string;
     description: string;
-    progress: number;
-    completed: boolean;
+    percentComplete: number;
+    favorite: boolean;
 }
