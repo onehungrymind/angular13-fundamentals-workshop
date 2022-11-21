@@ -6,11 +6,18 @@
       "description": "Learn the fundamentals of Angular 13",
       "percentComplete": 26,
       "favorite": true
+    },
+    {
+      "id": 2,
+      "title": "New Course Update",
+      "description": "Super awesome !!!",
+      "percentComplete": 68,
+      "favorite": false
     }
   ],
-  "lessons":[
+  "lessons": [
     {
-      "id":"1",
+      "id": "1",
       "title": "Component Arch"
     }
   ]
