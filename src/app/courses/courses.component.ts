@@ -5,7 +5,7 @@ const emptyCourse: Course = {
   id: null,
   title: '',
   description: '',
-  percentComplete: 0,
+  percentComplete: 50,
   favorite: false
 
 }
@@ -24,14 +24,14 @@ export class CoursesComponent implements OnInit {
       id: 1,
       title: 'Angular 13 Fundamentals',
       description: 'Learn the fundamentals of Angular 13',
-      percentComplete: 26,
+      percentComplete: 12,
       favorite: true
     },
     {
       id: 2,
       title: 'Angular 13 HARDEST',
       description: 'Learn the fundamentals of Angular 13',
-      percentComplete: 26,
+      percentComplete: 98,
       favorite: true
     },
     {
@@ -49,9 +49,11 @@ export class CoursesComponent implements OnInit {
   }
 
   selectedCourse = emptyCourse;
+  originalTitle = '';
 
   selectCourse(course){
-    this.selectedCourse = course;
+    this.selectedCourse = {...course};
+    this.originalTitle = course.title;
   }
 
   deleteCourse(courseId){
@@ -62,6 +64,10 @@ export class CoursesComponent implements OnInit {
   reset(){
     this.selectCourse({...emptyCourse}); //pass by reference. 
     
+  }
+
+  saveCourse(course){
+    console.log("SAVE COURSE: ", course)
   }
 
 }

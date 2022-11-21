@@ -34,12 +34,12 @@
             <mat-card-header>
                 <mat-card-title>
                     <span *ngIf="selectedCourse?.id; else elseBlock">
-                        {{selectedCourse.title}}
+                        {{originalTitle | titlecase}}
                     </span>
                     <ng-template #elseBlock>Select a Course</ng-template>
                 </mat-card-title>
             </mat-card-header>
-            <form #form="ngForm">
+            <form #form="ngForm" (submit)="saveCourse(selectedCourse)">
               <mat-card-content>
               
               <!-- COURSE FORM -->
@@ -54,19 +54,37 @@
                   </mat-form-field>
 
                   <mat-form-field class="full-width">
-                    <input
+                    <textarea
                     matInput
                     placeholder="Description"
                     [(ngModel)]="selectedCourse.description"
                     name="description" 
                     required
-                    type="text">
+                    type="text"></textarea>
                   </mat-form-field>
 
+                  <section class="full-width">
+                    <h4>{{selectedCourse.percentComplete}}% Complete</h4>
+                    <mat-slider 
+                    class="full-width" 
+                    min="0" 
+                    max="100"
+                    thumbLabel
+                    name="percentComplete"
+                    [(ngModel)]="selectedCourse.percentComplete" >
+                    </mat-slider>
+                  </section>
+
+                  <section class="full-width">
+                    <mat-checkbox [(ngModel)]="selectedCourse.favorite" name="favorite">
+                      Favorite
+                    </mat-checkbox>
+                  </section>
               </mat-card-content>
               <mat-card-actions>
 
               <!-- COURSE ACTIONS -->
+                  <button type="submit" [disabled]="form.invalid" mat-button color="primary">Save</button>
                   <button type="button" mat-button (click)="reset()">Cancel</button>"
 
               </mat-card-actions>
