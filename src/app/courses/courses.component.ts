@@ -8,38 +8,57 @@ const emptyCourse: Course = {
   description: '',
   percentComplete: 0,
   favorite: false,
-}
+};
 
 @Component({
   selector: 'app-courses',
   templateUrl: './courses.component.html',
-  styleUrls: ['./courses.component.scss']
+  styleUrls: ['./courses.component.scss'],
 })
 export class CoursesComponent implements OnInit {
   courses = [];
   selectedCourse = emptyCourse;
   originalTitle = '';
 
-  constructor(private coursesService: CoursesService) { }
+  constructor(private coursesService: CoursesService) {}
 
   ngOnInit(): void {
-    this.courses = this.coursesService.courses;
+    this.fetchCourses();
+  }
+
+  fetchCourses() {
+    this.coursesService
+      .all()
+      .subscribe((result: any) => (this.courses = result));
   }
 
   selectCourse(course) {
-    this.selectedCourse = {...course};
-    this.originalTitle = course.title;
+    this.selectedCourse = course;
   }
 
   saveCourse(course) {
-    console.log('SAVE COURSE', course);
+    if (course.id) {
+      this.updateCourse(course);
+    } else {
+      this.createCourse(course);
+    }
   }
 
-  deleteCourse(courseId) {
-    console.log('DELETE COURSE', courseId);
+  updateCourse(course) {}
+
+  createCourse(course) {
+    this.coursesService
+      .create(course)
+      .subscribe((result) => this.fetchCourses());
+  }
+
+  deleteCourse(course) {
+    this.coursesService
+      .update(course)
+      .subscribe((result) => this.fetchCourses());
   }
 
   reset() {
-    this.selectCourse({...emptyCourse});
+    this.selectCourse({ ...emptyCourse });
   }
 }

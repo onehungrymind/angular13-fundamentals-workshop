@@ -1,84 +1,18 @@
 <div class="courses-containers">
   <div class="courses-list">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>
-          Course List
-        </mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <mat-list>
-          <mat-list-item
-            *ngFor="let course of courses"
-            (click)="selectCourse(course)">
-            <h3 matLine>{{ course.title | titlecase }}</h3>
-            <p matLine>
-              {{ course.description }}
-            </p>
-            <button
-              mat-icon-button
-              color="warn"
-              (click)="deleteCourse(course.id); $event.stopImmediatePropagation()">
-              <mat-icon>delete</mat-icon>
-            </button>
-          </mat-list-item>
-        </mat-list>
-      </mat-card-content>
-    </mat-card>
+    <app-courses-list
+      [courses]="courses"
+      (selected)="selectCourse($event)"
+      (deleted)="deleteCourse($event)"
+    >
+    </app-courses-list>
   </div>
-
   <div class="course-details">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>
-          <span *ngIf="selectedCourse?.id; else elseBlock">
-            {{originalTitle | titlecase}}
-          </span>
-          <ng-template #elseBlock>Select a Course</ng-template>
-        </mat-card-title>
-      </mat-card-header>
-      <form #form="ngForm" (submit)="saveCourse(selectedCourse)">
-        <mat-card-content>
-          <mat-form-field class="full-width">
-            <input
-              matInput
-              placeholder="Title"
-              [(ngModel)]="selectedCourse.title"
-              name="title"
-              required
-              type="text">
-          </mat-form-field>
-          <mat-form-field class="full-width">
-            <textarea
-              matInput
-              placeholder="Description"
-              [(ngModel)]="selectedCourse.description"
-              name="description"
-              type="text"></textarea>
-          </mat-form-field>
-          <section class="full-width">
-            <h4>{{selectedCourse.percentComplete}}% Complete</h4>
-            <mat-slider
-              class="full-width"
-              min="0" max="100"
-              thumbLabel
-              name="percentComplete"
-              [(ngModel)]="selectedCourse.percentComplete"></mat-slider>
-          </section>
-          <section>
-            <mat-checkbox [(ngModel)]="selectedCourse.favorite" name="favorite">
-              Favorite
-            </mat-checkbox>
-          </section>
-        </mat-card-content>
-        <mat-card-actions>
-          <button type="submit" [disabled]="form.invalid" mat-button color="primary">Save</button>
-          <button type="button" mat-button (click)="reset()">Cancel</button>
-        </mat-card-actions>
-      </form>
-      <hr>
-      <pre>{{form.value | json}}</pre>
-      <pre>{{form.valid | json}}</pre>
-    </mat-card>
+    <app-courses-details
+      [currentCourse]="selectedCourse"
+      (cancelled)="reset()"
+      (saved)="saveCourse($event)"
+    >
+    </app-courses-details>
   </div>
 </div>
