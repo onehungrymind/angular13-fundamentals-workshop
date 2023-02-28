@@ -13,6 +13,13 @@
       "description": "Super Awesome Y'all",
       "percentComplete": 0,
       "favorite": true
+    },
+    {
+      "id": "ZotYNMx",
+      "title": "asdfasdf",
+      "description": "",
+      "percentComplete": 0,
+      "favorite": false
     }
   ],
   "lessons": [

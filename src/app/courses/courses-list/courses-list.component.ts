@@ -6,10 +6,7 @@ import { Course } from 'src/app/common/models/course';
   templateUrl: './courses-list.component.html',
   styleUrls: ['./courses-list.component.scss'],
 })
-export class CoursesListComponent implements OnInit {
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
+export class CoursesListComponent {
   @Input() courses: Course[] = [];
   @Output() selected = new EventEmitter();
   @Output() deleted = new EventEmitter();

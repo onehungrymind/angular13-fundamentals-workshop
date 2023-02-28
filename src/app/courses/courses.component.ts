@@ -17,6 +17,7 @@ const emptyCourse: Course = {
 })
 export class CoursesComponent implements OnInit {
   courses = [];
+  courses$: any;
   selectedCourse = emptyCourse;
   originalTitle = '';
 
@@ -27,9 +28,7 @@ export class CoursesComponent implements OnInit {
   }
 
   fetchCourses() {
-    this.coursesService
-      .all()
-      .subscribe((result: any) => (this.courses = result));
+    this.courses$ = this.coursesService.all();
   }
 
   selectCourse(course) {
@@ -37,6 +36,7 @@ export class CoursesComponent implements OnInit {
   }
 
   saveCourse(course) {
+    console.log(course);
     if (course.id) {
       this.updateCourse(course);
     } else {
@@ -44,7 +44,11 @@ export class CoursesComponent implements OnInit {
     }
   }
 
-  updateCourse(course) {}
+  updateCourse(course) {
+    this.coursesService
+      .update(course)
+      .subscribe((result) => this.fetchCourses());
+  }
 
   createCourse(course) {
     this.coursesService

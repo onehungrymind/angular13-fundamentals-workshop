@@ -6,11 +6,14 @@ import { Course } from 'src/app/common/models/course';
   templateUrl: './courses-details.component.html',
   styleUrls: ['./courses-details.component.scss'],
 })
-export class CoursesDetailsComponent implements OnInit {
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
-  @Input() currentCourse: Course;
+export class CoursesDetailsComponent {
+  currentCourse: Course;
+  originalTitle = '';
   @Output() saved = new EventEmitter();
   @Output() cancelled = new EventEmitter();
+  @Input() set course(value) {
+    if (!value) return;
+    this.currentCourse = { ...value };
+    this.originalTitle = this.currentCourse.title;
+  }
 }
